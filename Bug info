@@ -1,0 +1,86 @@
+💣 I Broke Facebook’s 2FA for $1,800 — and Laughed My Way Through It
+How I (almost) felt like a Hollywood hacker at 3 AM in pajamas.
+Let me take you on a ride — a ride that started with curiosity, escalated into chaos, and ended with a modest but memorable $1,800 from Meta.
+
+Yes, I bypassed Facebook’s Two-Factor Authentication (2FA) using nothing but patience, coffee, and the kind of thinking that makes you question whether you’ve watched too many hacker movies.
+
+☕ The Setup
+It was one of those quiet nights — too late for productivity, too early for sleep. I had my hoodie on, black terminal open, and Mission Impossible music in my head. I was poking around Facebook and Instagram’s login flows (legally, of course 👮‍♂️) when something weird caught my eye.
+
+🤔 "Wait a second..."
+So, I noticed something suspicious in Instagram’s sign-up flow. Apparently, if you try to create a new account with the same phone number and password as an existing account… Instagram just lets you log into the existing one.
+
+What?!
+
+It’s like walking up to a security gate, showing your friend’s ID, and the guard says “Ah yes, right this way sir.”
+
+Of course, it wasn’t that easy — turns out this “magic login” only worked on devices and networks already associated with the account. So no, I couldn’t just “create” my way into someone else’s profile.
+
+But that was just the beginning.
+
+🔍 The Digging Begins
+Three words: Vulnerable. API. Endpoint.
+
+After hours of digging through request flows, headers, and rate limits, I found a gold nugget in the form of an endpoint that didn’t rate-limit properly. It allowed you to brute-force verification codes when signing up via phone number.
+
+So what did I do?
+
+I made an Instagram account linked to the victim's phone number. This didn’t give me access yet, but it got me one foot inside the door (and earned me a virtual “nice try” reward of around $3,000 if this alone had been new).
+
+But wait… it gets juicier 🍊
+
+🔗 Account Center Magic Trick
+Now here’s where the magic happened — and I’m both proud and confused it worked.
+
+I went into accountscenter.facebook.com, linked the newly-created Instagram account (with the victim’s phone number) to my own Facebook account. Facebook said:
+
+“Oh, you already confirmed this number on Instagram? That’s cool. You don’t need to reverify it.”
+
+What?!
+
+Just like that, the victim’s phone number was now mine on Facebook.
+
+Facebook’s logic:
+
+If you link an Instagram account that has a confirmed number…
+
+...we’ll let that number float over to your Facebook account...
+
+...and remove it from the victim's account.
+
+...which disables their 2FA.
+
+Boom. 2FA bypassed.
+
+I could now log into the victim’s Facebook account without ever needing the 2FA code.
+
+🥳 Reporting & The Cash (not quite a mansion)
+When I reported the bug, Meta responded:
+
+“Hey, this one’s known. But your exploitation method is creative.”
+
+Translation:
+
+No champagne.
+
+But here’s $1,800 for the clever twist.
+
+I'll take it.
+
+🎓 Takeaways
+Creativity > Copy-paste hacks
+
+Known bugs can still yield bounties if your exploitation path is new
+
+Facebook's Account Center was basically the backdoor that unlocked everything
+
+Always read API docs like bedtime stories — you might dream of exploits
+
+🤷 Final Thoughts
+Some get $25,000 for 2FA bypasses. I got $1,800 and the satisfaction of saying:
+
+“Yeah… I broke Facebook. A little. 😌”
+
+And hey — if you're reading this and working on bug bounties yourself, don’t underestimate small observations. The weirdest behaviors often lead to the coolest bugs.
+
+✍️ Thanks for reading my story! If you liked it, share it or star the repo. If you're Meta, please don’t block me. I come in peace.
